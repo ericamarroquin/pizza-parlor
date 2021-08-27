@@ -1,4 +1,8 @@
 //Business Logic
+function MultiplePizzas() {
+  this.pizzas = {};
+  this.pizzaId = 0;
+}
 
 function Pizza() {
   this.size = "small";
@@ -36,6 +40,8 @@ Pizza.prototype.totalCost = function() {
 }
 
 //UI Logic
+let multiplePizzas = new MultiplePizzas();
+
 $(document).ready(function() {
   $("form#chooseToppings").submit(function(event) {
     event.preventDefault();
@@ -52,5 +58,6 @@ $(document).ready(function() {
     $("#pizza-size").text(newPizza.size);
     $("#pizza-toppings").text(newPizza.toppings.join(", "));
     $("#pizza-cost").text(pizzaCost);
+    $(".show-order").show();
   })
 })
