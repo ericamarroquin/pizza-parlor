@@ -15,12 +15,14 @@ const toppingsMenu = {
 Pizza.prototype.totalCost = function(size, chosenToppings) {
   let cost = 5;
   const toppingKeys = Object.keys(toppingsMenu);
+  const toppingValues = Object.values(toppingsMenu);
   for (let i = 0; i < chosenToppings.length; i++) {
-    console.log(i);
+    console.log(chosenToppings[i]);
     for (j = 0; j < toppingKeys.length; j++) {
-      console.log(j);
-      if (i === toppingKeys[j]) {
-        cost += toppingsMenu.toppingKeys[j];
+      console.log(toppingKeys[j]);
+      if (chosenToppings[i] === toppingKeys[j]) {
+        console.log("Match!");
+        cost += toppingValues[j];
       }
     }
   }
