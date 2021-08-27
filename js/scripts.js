@@ -4,6 +4,16 @@ function MultiplePizzas() {
   this.pizzaId = 0;
 }
 
+MultiplePizzas.prototype.assignId = function() {
+  this.pizzaId += 1;
+  return this.pizzaId;
+}
+
+MultiplePizzas.prototype.addPizza = function(pizza) {
+  pizza.id = this.assignId();
+  this.pizzas[pizza.id] = pizza;
+}
+
 function Pizza() {
   this.size = "small";
   this.toppings = [];
@@ -41,6 +51,10 @@ Pizza.prototype.totalCost = function() {
 
 //UI Logic
 let multiplePizzas = new MultiplePizzas();
+
+function displayPizzaOrders(pizzasToDisplay) {
+  let htmlForOrderInfo = 
+}
 
 $(document).ready(function() {
   $("form#chooseToppings").submit(function(event) {
