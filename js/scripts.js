@@ -39,7 +39,10 @@ Pizza.prototype.totalCost = function(size, chosenToppings) {
 $(document).ready(function() {
   $("form#chooseToppings").submit(function(event) {
     event.preventDefault();
-    let checkedValues = $("input:checkbox[name=toppings]:checked").val();
+    let checkedValues = [];
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      checkedValues.push($(this).val());
+    })
     $("#pizza-toppings").text(checkedValues);
   })
 })
