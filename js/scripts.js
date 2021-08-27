@@ -14,22 +14,22 @@ const toppingsMenu = {
   peppers: 0.25,
 }
 
-Pizza.prototype.totalCost = function(size, chosenToppings) {
+Pizza.prototype.totalCost = function() {
   let cost = 5;
   const toppingKeys = Object.keys(toppingsMenu);
   const toppingValues = Object.values(toppingsMenu);
-  for (let i = 0; i < chosenToppings.length; i++) {
+  for (let i = 0; i < this.toppings.length; i++) {
     for (j = 0; j < toppingKeys.length; j++) {
-      if (chosenToppings[i] === toppingKeys[j]) {
+      if (this.toppings[i] === toppingKeys[j]) {
         cost += toppingValues[j];
       }
     }
   }
-  if (size === "medium") {
+  if (this.size === "medium") {
     cost += 1
-  } else if (size === "large") {
+  } else if (this.size === "large") {
     cost += 2
-  } else if (size === "XL") {
+  } else if (this.size === "XL") {
     cost += 3
   }
   return cost;
@@ -39,10 +39,18 @@ Pizza.prototype.totalCost = function(size, chosenToppings) {
 $(document).ready(function() {
   $("form#chooseToppings").submit(function(event) {
     event.preventDefault();
-    let checkedValues = [];
+    const newPizza = new Pizza();
+    newPizza.size = $("#size").val();
+    
+    let toppingValues = [];
     $("input:checkbox[name=toppings]:checked").each(function() {
-      checkedValues.push($(this).val());
+      toppingValues.push($(this).val());
     })
-    $("#pizza-toppings").text(checkedValues);
+
+    newPizza.toppings = toppingValues;
+    const pizzaCost = newPizza.totalCost();
+    $("#pizza-size").text(newPizza.size);
+    $("#pizza-toppings").text(newPizza.toppings.join(", "));
+    $("#pizza-cost").text(pizzaCost);
   })
 })
