@@ -50,5 +50,9 @@ Erica Marroquin | [Email](mailto:ericamarroquin03@gmail.com) | [LinkedIn](https:
 ## Specs
 
 ```javascript
-
+Describe: Pizza()
+Test: "Should create a Pizza object."
+Code: let pizza = new Pizza();
+pizza;
+Expected Output: Pizza {size:"small", toppings:{...}}
 ```
