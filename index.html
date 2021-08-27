@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.6.0.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Mama's Pizzeria</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Mama's Pizzeria</h1>
+    <h2>Place an order below!</h2>
+
+    <h6>Select a size</h6>
+
+    <form id="chooseToppings">
+      <select class="form-control" id="size">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="XL">Extra Large</option>
+      </select>
+      <br>
+
+      <h6>Select your toppings</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="cheese" name="toppings" id="cheese" checked>
+        <label class="form-check-label" for="cheese">Cheese</label>
+      </div>
+      <br>
+
+      <p>Meats</p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="pepperoni" name="toppings" id="pepperoni">
+        <label class="form-check-label" for="pepperoni">Pepperoni</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="chicken" name="toppings" id="chicken">
+        <label class="form-check-label" for="chicken">Chicken</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="ham" name="toppings" id="ham">
+        <label class="form-check-label" for="ham">Ham</label>
+      </div>
+      <br>
+
+      <p>Veggies</p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="peppers" name="toppings" id="peppers">
+        <label class="form-check-label" for="peppers">Peppers</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="pineapple" name="toppings" id="pineapple">
+        <label class="form-check-label" for="pineapple">Pineapple</label>
+      </div>
+    </form>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+
+    <div class="show-order">
+      <h6>Thank you for your order!</h6>
+      <p>Pizza size: <span id="pizza-size"></span></p>
+      <p>Pizza toppings: <span id="pizza-toppings"></span></p>
+
+    </div>
+  </div>
+</body>
+</html>

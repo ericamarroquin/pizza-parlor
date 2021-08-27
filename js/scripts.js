@@ -1,3 +1,5 @@
+//Business Logic
+
 function Pizza() {
   this.size = "small";
   this.toppings = [];
@@ -32,3 +34,12 @@ Pizza.prototype.totalCost = function(size, chosenToppings) {
   }
   return cost;
 }
+
+//UI Logic
+$(document).ready(function() {
+  $("form#chooseToppings").submit(function(event) {
+    event.preventDefault();
+    let checkedValues = $("input:checkbox[name=toppings]:checked").val();
+    $("#pizza-toppings").text(checkedValues);
+  })
+})
