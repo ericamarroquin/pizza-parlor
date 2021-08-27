@@ -17,18 +17,12 @@ Pizza.prototype.totalCost = function(size, chosenToppings) {
   const toppingKeys = Object.keys(toppingsMenu);
   const toppingValues = Object.values(toppingsMenu);
   for (let i = 0; i < chosenToppings.length; i++) {
-    console.log(chosenToppings[i]);
     for (j = 0; j < toppingKeys.length; j++) {
-      console.log(toppingKeys[j]);
       if (chosenToppings[i] === toppingKeys[j]) {
-        console.log("Match!");
         cost += toppingValues[j];
       }
     }
   }
-  return cost;
-}
-
   if (size === "medium") {
     cost += 1
   } else if (size === "large") {
@@ -36,3 +30,5 @@ Pizza.prototype.totalCost = function(size, chosenToppings) {
   } else if (size === "XL") {
     cost += 3
   }
+  return cost;
+}

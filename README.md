@@ -55,4 +55,118 @@ Test: "Should create a Pizza object."
 Code: let pizza = new Pizza();
 pizza;
 Expected Output: Pizza {size:"small", toppings:{...}}
+
+Describe: Pizza.prototype.totalCost();
+Test: "Should return base cost $5."
+Code: pizza.totalCost());
+Expected Output: 5
+
+Test: "Should return base cost plus $1 for medium."
+Code: pizza.totalCost("medium");
+Expected Output: 6
+
+Test: "Should return base cost plus $2 for large."
+Code: pizza.totalCost("large");
+Expected Output: 7
+
+Test: "Should return base cost plus $3 for XL."
+Code: pizza.totalCost("XL");
+Expected Output: 8
+
+Test: "Should return each chosen topping."
+Code:
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("medium",toppings);
+Expected Output:
+cheese
+pineapple
+
+Test: "Should return a chosen topping and full list of topping choices for each chosen topping."
+Code:
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("medium",toppings);
+Expected Output:
+cheese
+cheese
+pepperoni
+pineapple
+chicken
+ham
+peppers
+pineapple
+cheese
+pepperoni
+pineapple
+chicken
+ham
+peppers
+
+Test: "Should return 'Match!' when chosen topping equals a topping value in the list of topping choices."
+Code:
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("medium",toppings);
+Expected Output:
+cheese
+cheese
+Match!
+pepperoni
+pineapple
+chicken
+ham
+peppers
+pineapple
+cheese
+pepperoni
+pineapple
+Match!
+chicken
+ham
+peppers
+
+Test: "Should return price value of topping choice when 'Match' is found."
+Code:
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("medium",toppings);
+Expected Output:
+cheese
+cheese
+0
+pepperoni
+pineapple
+chicken
+ham
+peppers
+pineapple
+cheese
+pepperoni
+pineapple
+0.5
+chicken
+ham
+peppers
+
+Test: "Should return total cost of small size pizza with cheese and pineapple."
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("small",toppings);
+Expected Output: 5.5
+
+Test: "Should return total cost of medium size pizza with cheese and pineapple."
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("medium",toppings);
+Expected Output: 6.5
+
+Test: "Should return total cost of large size pizza with cheese and pineapple."
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("large",toppings);
+Expected Output: 7.5
+
+Test: "Should return total cost of XL size pizza with cheese and pineapple."
+let toppings = ["cheese","pineapple"]
+pizza.totalCost("XL",toppings);
+Expected Output: 8.5
+
+Test: "Should return total cost of small size pizza with cheese, pineapple, and chicken."
+let toppings = ["cheese","pineapple", "chicken"]
+pizza.totalCost("small",toppings);
+Expected Output: 6.5
 ```
